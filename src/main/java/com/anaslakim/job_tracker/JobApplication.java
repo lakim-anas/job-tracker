@@ -5,17 +5,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDate;
-
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 @Entity
 public class JobApplication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotBlank(message = "Company is required")
     private String company;
+    @NotBlank(message = "Role is required")
     private String role;
+    @NotBlank(message = "Status is required")
     private String status;
+    @NotNull(message = "Date applied is required")
     private LocalDate dateApplied;
 
     // Empty constructor: JPA needs this

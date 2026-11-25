@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import jakarta.validation.Valid;
 @RestController
 public class JobApplicationController {
 
@@ -27,7 +27,7 @@ public class JobApplicationController {
     }
 
     @PostMapping("/applications")
-    public ResponseEntity<JobApplication> addApplication(@RequestBody JobApplication application) {
+    public ResponseEntity<JobApplication> addApplication(@Valid @RequestBody JobApplication application) {
         JobApplication saved = repository.save(application);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
@@ -42,7 +42,7 @@ public class JobApplicationController {
     }
 
     @PutMapping("/applications/{id}")
-    public ResponseEntity<JobApplication> updateApplication(@PathVariable Long id, @RequestBody JobApplication updated) {
+    public ResponseEntity<JobApplication> updateApplication(@PathVariable Long id, @Valid@RequestBody JobApplication updated) {
         JobApplication existing = repository.findById(id).orElse(null);
         if (existing == null) {
             return ResponseEntity.notFound().build();
