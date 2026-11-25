@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 public class JobApplicationController {
 
@@ -33,5 +34,17 @@ public class JobApplicationController {
     @DeleteMapping("/applications/{id}")
     public void deleteApplication(@PathVariable Long id) {
         repository.deleteById(id);
+    }
+        @PutMapping("/applications/{id}")
+    public JobApplication updateApplication(@PathVariable Long id, @RequestBody JobApplication updated) {
+        JobApplication existing = repository.findById(id).orElse(null);
+        if (existing == null) {
+            return null;
+        }
+        existing.setCompany(updated.getCompany());
+        existing.setRole(updated.getRole());
+        existing.setStatus(updated.getStatus());
+        existing.setDateApplied(updated.getDateApplied());
+        return repository.save(existing);
     }
 }

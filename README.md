@@ -20,7 +20,7 @@ A back-end REST API for tracking job and internship applications, built with Jav
 - [x] POST /applications endpoint to add a new application
 - [x] GET /applications/{id} to get one application
 - [x] DELETE /applications/{id} to remove an application
-- [ ] PUT /applications/{id} to update an application
+- [x] PUT /applications/{id} to update an application (full CRUD complete)
 - [ ] Input validation and error handling
 - [ ] Unit tests with JUnit
 - [ ] Switch to a MySQL database
