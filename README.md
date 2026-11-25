@@ -18,7 +18,9 @@ A back-end REST API for tracking job and internship applications, built with Jav
 - [x] Repository that saves and reads applications from the H2 database
 - [x] GET /applications endpoint that returns all applications as JSON
 - [x] POST /applications endpoint to add a new application
-- [ ] Endpoints to update and delete applications
+- [x] GET /applications/{id} to get one application
+- [x] DELETE /applications/{id} to remove an application
+- [ ] PUT /applications/{id} to update an application
 - [ ] Input validation and error handling
 - [ ] Unit tests with JUnit
 - [ ] Switch to a MySQL database
