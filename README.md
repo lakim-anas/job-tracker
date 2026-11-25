@@ -22,7 +22,7 @@ A back-end REST API for tracking job and internship applications, built with Jav
 - [x] DELETE /applications/{id} to remove an application
 - [x] PUT /applications/{id} to update an application (full CRUD complete)
 - [x] Error handling with proper HTTP status codes (200, 201, 204, 404)
-- [ ] Input validation
+- [x] Input validation (required fields return 400 Bad Request)
 - [ ] Unit tests with JUnit
 - [ ] Switch to a MySQL database
 
